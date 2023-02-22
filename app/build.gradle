@@ -6,6 +6,11 @@ android {
     namespace 'com.example.autotempdelete'
     compileSdk 33
 
+    useLibrary 'android.test.runner'
+    useLibrary 'android.test.baes'
+    useLibrary 'android.test.mock'
+
+
     defaultConfig {
         applicationId "com.example.autotempdelete"
         minSdk 30
@@ -13,7 +18,9 @@ android {
         versionCode 1
         versionName "1.0"
 
+        //Espresso(Espresso 공식문서)
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
     }
 
     buildTypes {
@@ -26,6 +33,13 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
+    sourceSets {
+        androidTest {
+            assets.srcDirs = ['src/androidTest/assets']
+        }
+    }
+
 }
 
 dependencies {
@@ -36,4 +50,61 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+//    //Cucumber-JVM            //Cucumber 공식문서 내용(해당 줄 말고 아래 3줄로 정상 import)
+//    testImplementation 'io.cucumber:cucumber-java:7.11.1'
+//    testImplementation 'io.cucumber:cucumber-junit:7.11.1'
+
+    //Cucumber(Maven 공식문서)
+    implementation group: 'io.cucumber', name: 'cucumber-java', version: '7.11.1'
+    testImplementation group: 'io.cucumber', name: 'cucumber-junit', version: '7.11.1'
+    implementation group: 'io.cucumber', name: 'cucumber-core', version: '7.11.1'
+
+    //Android
+//    androidTestImplementation "io.cucumber:cucumber-android:7.11.1"
+
+    //Espresso(Espresso 공식문서)
+    androidTestImplementation 'androidx.test:runner:1.1.0'
+    androidTestImplementation 'androidx.test:rules:1.1.0'
+
+    //JUnit(Maven 공식문서)
+    testImplementation group: 'junit', name: 'junit', version: '4.13.2'
+
+
+
+
+
+
+
+    // Core library
+    androidTestImplementation 'androidx.test:core:1.0.0'
+
+    // Assertions
+    androidTestImplementation 'androidx.test.ext:junit:1.0.0'
+    androidTestImplementation 'androidx.test.ext:truth:1.0.0'
+    androidTestImplementation 'com.google.truth:truth:0.42'
+
+    // Espresso dependencies
+    androidTestImplementation 'androidx.test.espresso:espresso-contrib:3.1.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-intents:3.1.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-accessibility:3.1.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-web:3.1.0'
+    androidTestImplementation 'androidx.test.espresso.idling:idling-concurrent:3.1.0'
+
+    // The following Espresso dependency can be either "implementation"
+    // or "androidTestImplementation", depending on whether you want the
+    // dependency to appear on your APK's compile classpath or the test APK
+    // classpath.
+    androidTestImplementation 'androidx.test.espresso:espresso-idling-resource:3.1.0'
+
+
+
+
+
+
+
+
+
+
+
 }
